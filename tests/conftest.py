@@ -1,17 +1,17 @@
 import json
 import os
 
-from eth_utils.toolz import (
+from platon_utils.toolz import (
     assoc,
 )
 
 import pytest
 
-import eth_keyfile
+import platon_keyfile
 
 
 FIXTURES_FILE_PATH = os.path.join(
-    os.path.dirname(os.path.dirname((eth_keyfile.__file__))),
+    os.path.dirname(os.path.dirname((platon_keyfile.__file__))),
     'fixtures',
     'KeyStoreTests',
     'basic_tests.json',

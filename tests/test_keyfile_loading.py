@@ -1,8 +1,8 @@
 import codecs
 
-from eth_utils import decode_hex
+from platon_utils import decode_hex
 
-from eth_keyfile.keyfile import decode_keyfile_json
+from platon_keyfile.keyfile import decode_keyfile_json
 
 
 def test_decoding_keyfile(keyfile_data):

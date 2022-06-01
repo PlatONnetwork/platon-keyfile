@@ -1,8 +1,8 @@
 from __future__ import unicode_literals
 
-from eth_utils import decode_hex
+from platon_utils import decode_hex
 
-from eth_keyfile.keyfile import (
+from platon_keyfile.keyfile import (
     decode_keyfile_json,
     create_keyfile_json,
 )

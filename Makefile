@@ -22,7 +22,7 @@ clean-pyc:
 	find . -name '*~' -exec rm -f {} +
 
 lint:
-	flake8 eth_keyfile
+	flake8 platon_keyfile
 
 test:
 	py.test tests

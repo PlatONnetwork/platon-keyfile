@@ -8,9 +8,9 @@ from Crypto.Cipher import AES
 from Crypto.Protocol.KDF import scrypt
 from Crypto.Util import Counter
 
-from eth_keys import keys
+from platon_keys import keys
 
-from eth_utils import (
+from platon_utils import (
     big_endian_to_int,
     decode_hex,
     encode_hex,
@@ -35,12 +35,13 @@ def load_keyfile(path_or_file_obj):
         return json.load(path_or_file_obj)
 
 
-def create_keyfile_json(private_key, password, version=3, kdf="pbkdf2",
-                        iterations=None, salt_size=16):
+def create_keyfile_json(private_key, password, hrp, version=3, kdf="scrypt",
+                        iterations=None, salt_size=32):
     if version == 3:
         return _create_v3_keyfile_json(
             private_key,
             password,
+            hrp,
             kdf,
             iterations,
             salt_size)
@@ -88,7 +89,7 @@ SCRYPT_R = 1
 SCRYPT_P = 8
 
 
-def _create_v3_keyfile_json(private_key, password, kdf,
+def _create_v3_keyfile_json(private_key, password, hrp, kdf,
                             work_factor=None, salt_size=16):
     salt = Random.get_random_bytes(salt_size)
 
@@ -133,10 +134,10 @@ def _create_v3_keyfile_json(private_key, password, kdf,
     ciphertext = encrypt_aes_ctr(private_key, encrypt_key, iv)
     mac = keccak(derived_key[16:32] + ciphertext)
 
-    address = keys.PrivateKey(private_key).public_key.to_address()
+    address = keys.PrivateKey(private_key).public_key.to_bech32_address(hrp)
 
     return {
-        'address': remove_0x_prefix(address),
+        'address': address,
         'crypto': {
             'cipher': 'aes-128-ctr',
             'cipherparams': {

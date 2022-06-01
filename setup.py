@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 from setuptools import (
     setup,
     find_packages,
@@ -9,8 +6,8 @@ from setuptools import (
 
 deps = {
     'keyfile': [
-        "eth-utils>=1.3.0,<2",
-        "eth-keys>=0.2.1,<0.3.0",
+        "platon-utils>=1.2.0",
+        "platon-keys>=1.2.0",
         "pycryptodome>=3.6.6,<4",
     ],
     'test': [
@@ -45,35 +42,35 @@ deps['dev'] = (
 install_requires = deps['keyfile']
 
 setup(
-    name='eth-keyfile',
+    name='platon-keyfile',
     # *IMPORTANT*: Don't manually change the version here. Use the 'bumpversion' utility.
-    version='0.5.1',
+    version='1.2.0',
     description=(
-        "A library for handling the encrypted keyfiles used to store ethereum "
-        "private keys."
+        "A library for handling the encrypted keyfiles used to store platon private keys."
     ),
-    long_description_markdown_filename='README.md',
-    author='Piper Merriam',
-    author_email='pipermerriam@gmail.com',
-    url='https://github.com/ethereum/eth-keyfile',
+    # long_description_markdown_filename='README.html',
+    author='Shinnng',
+    author_email='shinnng@outlook.com',
+    url='https://github.com/platonnetwork/platon-keyfile',
     include_package_data=True,
     install_requires=install_requires,
     extras_require=deps,
     setup_requires=['setuptools-markdown'],
-    py_modules=['eth_keyfile'],
+    py_modules=['platon_keyfile'],
     license="MIT",
     zip_safe=False,
-    keywords='ethereum',
+    keywords='platon',
     packages=find_packages(exclude=["tests", "tests.*"]),
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
     ],
 )

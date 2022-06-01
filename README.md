@@ -1,9 +1,9 @@
-# Ethereum Keyfile
+# PlatON Keyfile
 
-A library for handling the encrypted keyfiles used to store ethereum private keys
+A library for handling the encrypted keyfiles used to store platon private keys
 
 
-> This library and repository was previously located at https://github.com/pipermerriam/ethereum-keyfile.  It was transferred to the Ethereum foundation github in November 2017 and renamed to `eth-keyfile`.  The PyPi package was also renamed from `ethereum-keyfile` to `eth-keyfile`.
+> This library and repository was previously located at https://github.com/pipermerriam/platon-keyfile.  It was transferred to the PlatON foundation github in November 2017 and renamed to `eth-keyfile`.  The PyPi package was also renamed from `platon-keyfile` to `eth-keyfile`.
 
 ## Installation
 
